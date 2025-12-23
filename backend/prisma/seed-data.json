@@ -1,0 +1,253 @@
+{
+  "products": [
+    {
+      "name": "Super-OS",
+      "version": "2023.04",
+      "shortDescription": "This super OS is all you ever need!",
+      "longDescription": "Super-OS 2023.04 release is super-os that runs on all super-pcs. It includes cutting-edge features, enhanced security, and optimized performance for modern computing.",
+      "price": {
+        "reseller": 80,
+        "uvp": 100,
+        "discount": 20
+      },
+      "inStock": true,
+      "images": [
+        {
+          "url": "https://placehold.co/600x400/2563eb/ffffff?text=Super-OS",
+          "alt": "Super-OS Desktop Screenshot"
+        },
+        {
+          "url": "https://placehold.co/600x400/1e40af/ffffff?text=Features",
+          "alt": "Super-OS Features"
+        }
+      ]
+    },
+    {
+      "name": "Cloud Backup Pro",
+      "version": "5.2",
+      "shortDescription": "Secure cloud backup solution for your business",
+      "longDescription": "Cloud Backup Pro 5.2 offers enterprise-grade backup solutions with end-to-end encryption, automatic scheduling, and lightning-fast restore capabilities.",
+      "price": {
+        "reseller": 120,
+        "uvp": 150,
+        "discount": 30
+      },
+      "inStock": true,
+      "images": [
+        {
+          "url": "https://placehold.co/600x400/059669/ffffff?text=Cloud+Backup",
+          "alt": "Cloud Backup Dashboard"
+        }
+      ]
+    },
+    {
+      "name": "Dev Tools Suite",
+      "version": "2024.1",
+      "shortDescription": "Complete development toolkit for modern developers",
+      "longDescription": "Dev Tools Suite 2024.1 combines code editor, debugger, version control, and deployment tools in one powerful package designed for productivity.",
+      "price": {
+        "reseller": 200,
+        "uvp": 250,
+        "discount": 50
+      },
+      "inStock": true,
+      "images": [
+        {
+          "url": "https://placehold.co/600x400/7c3aed/ffffff?text=Dev+Tools",
+          "alt": "Dev Tools Interface"
+        }
+      ]
+    },
+    {
+      "name": "Security Manager",
+      "version": "3.8",
+      "shortDescription": "Advanced security and threat protection",
+      "longDescription": "Security Manager 3.8 provides real-time threat detection, firewall management, and comprehensive security auditing for your infrastructure.",
+      "price": {
+        "reseller": 180,
+        "uvp": 220,
+        "discount": 40
+      },
+      "inStock": false,
+      "images": [
+        {
+          "url": "https://placehold.co/600x400/dc2626/ffffff?text=Security",
+          "alt": "Security Dashboard"
+        }
+      ]
+    },
+    {
+      "name": "Database Pro",
+      "version": "12.0",
+      "shortDescription": "High-performance database management system",
+      "longDescription": "Database Pro 12.0 delivers blazing-fast queries, horizontal scaling, and advanced indexing for mission-critical applications.",
+      "price": {
+        "reseller": 300,
+        "uvp": 400,
+        "discount": 100
+      },
+      "inStock": true,
+      "images": [
+        {
+          "url": "https://placehold.co/600x400/ea580c/ffffff?text=Database",
+          "alt": "Database Interface"
+        }
+      ]
+    },
+    {
+      "name": "AI Assistant",
+      "version": "1.5",
+      "shortDescription": "Intelligent AI-powered productivity assistant",
+      "longDescription": "AI Assistant 1.5 uses advanced machine learning to help you automate tasks, analyze data, and boost your productivity with natural language processing.",
+      "price": {
+        "reseller": 99,
+        "uvp": 129,
+        "discount": 30
+      },
+      "inStock": true,
+      "images": [
+        {
+          "url": "https://placehold.co/600x400/8b5cf6/ffffff?text=AI+Assistant",
+          "alt": "AI Assistant Interface"
+        }
+      ]
+    },
+    {
+      "name": "Network Monitor",
+      "version": "4.3",
+      "shortDescription": "Real-time network performance monitoring",
+      "longDescription": "Network Monitor 4.3 tracks bandwidth usage, detects anomalies, and provides detailed analytics for optimal network performance.",
+      "price": {
+        "reseller": 150,
+        "uvp": 180,
+        "discount": 30
+      },
+      "inStock": true,
+      "images": [
+        {
+          "url": "https://placehold.co/600x400/0891b2/ffffff?text=Network",
+          "alt": "Network Monitoring Dashboard"
+        }
+      ]
+    },
+    {
+      "name": "Project Manager Plus",
+      "version": "6.1",
+      "shortDescription": "Comprehensive project management solution",
+      "longDescription": "Project Manager Plus 6.1 streamlines team collaboration with task tracking, Gantt charts, resource allocation, and real-time reporting.",
+      "price": {
+        "reseller": 175,
+        "uvp": 220,
+        "discount": 45
+      },
+      "inStock": true,
+      "images": [
+        {
+          "url": "https://placehold.co/600x400/16a34a/ffffff?text=Project+Manager",
+          "alt": "Project Manager Dashboard"
+        }
+      ]
+    },
+    {
+      "name": "Video Editor Pro",
+      "version": "2024.2",
+      "shortDescription": "Professional video editing software",
+      "longDescription": "Video Editor Pro 2024.2 offers 4K editing, advanced color grading, motion graphics, and AI-powered effects for content creators.",
+      "price": {
+        "reseller": 250,
+        "uvp": 320,
+        "discount": 70
+      },
+      "inStock": true,
+      "images": [
+        {
+          "url": "https://placehold.co/600x400/db2777/ffffff?text=Video+Editor",
+          "alt": "Video Editor Interface"
+        }
+      ]
+    },
+    {
+      "name": "Analytics Dashboard",
+      "version": "3.0",
+      "shortDescription": "Business intelligence and analytics platform",
+      "longDescription": "Analytics Dashboard 3.0 transforms raw data into actionable insights with customizable reports, predictive analytics, and beautiful visualizations.",
+      "price": {
+        "reseller": 220,
+        "uvp": 280,
+        "discount": 60
+      },
+      "inStock": true,
+      "images": [
+        {
+          "url": "https://placehold.co/600x400/0284c7/ffffff?text=Analytics",
+          "alt": "Analytics Dashboard"
+        }
+      ]
+    },
+    {
+      "name": "Email Marketing Suite",
+      "version": "5.5",
+      "shortDescription": "Complete email marketing automation",
+      "longDescription": "Email Marketing Suite 5.5 enables personalized campaigns, A/B testing, subscriber management, and detailed performance tracking.",
+      "price": {
+        "reseller": 140,
+        "uvp": 180,
+        "discount": 40
+      },
+      "inStock": true,
+      "images": [
+        {
+          "url": "https://placehold.co/600x400/f59e0b/ffffff?text=Email+Marketing",
+          "alt": "Email Campaign Builder"
+        }
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "rating": 5,
+      "name": "Max Mustermann",
+      "text": "Hervorragendes Betriebssystem! Super schnell und stabil."
+    },
+    {
+      "rating": 4,
+      "name": "Anna Schmidt",
+      "text": "Sehr gute Software, nur die Installation könnte einfacher sein."
+    },
+    {
+      "rating": 5,
+      "name": "Thomas Weber",
+      "text": "Beste Backup-Lösung die ich je verwendet habe!"
+    },
+    {
+      "rating": 5,
+      "name": "Lisa Müller",
+      "text": "Perfekt für Entwickler. Spart mir täglich Stunden!"
+    },
+    {
+      "rating": 3,
+      "name": "Peter Klein",
+      "text": "Gute Features, aber etwas teuer für kleine Teams."
+    }
+  ],
+  "customers": [
+    {
+      "name": "Max Mustermann",
+      "birth": "1980-01-01T00:00:00.000Z",
+      "email": "max@agital.online",
+      "password": "$2b$10$rKjHhZ8h9mHJQx5v5Q8YxOZH9v5Q8YxOZH9v5Q8YxOZH9v5Q8YxO"
+    },
+    {
+      "name": "Anna Schmidt",
+      "birth": "1992-05-15T00:00:00.000Z",
+      "email": "anna.schmidt@example.com",
+      "password": "$2b$10$aB1cD2eF3gH4iJ5kL6mN7oP8qR9sT0uV1wX2yZ3aB4cD5eF6gH7i"
+    },
+    {
+      "name": "Thomas Weber",
+      "birth": "1985-11-20T00:00:00.000Z",
+      "email": "thomas.weber@example.com",
+      "password": "$2b$10$xY9zA8bC7dE6fG5hI4jK3lM2nO1pQ0rS9tU8vW7xY6zA5bC4dE3f"
+    }
+  ]
+}

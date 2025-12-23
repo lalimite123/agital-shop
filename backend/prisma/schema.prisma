@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB_URI")
+}
+
+model Product {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  name             String
+  version          String
+  shortDescription String
+  longDescription  String
+  price            Price
+  inStock          Boolean  @default(true)
+  images           Image[]
+  createdAt        DateTime @default(now())
+  reviews          Review[]
+
+  @@map("products")
+}
+
+type Price {
+  reseller Float
+  uvp      Float
+  discount Float
+}
+
+type Image {
+  url String
+  alt String
+}
+
+model Review {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  rating    Int
+  name      String
+  text      String
+  productId String   @db.ObjectId
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@map("reviews")
+}
+
+model Customer {
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  birth    DateTime
+  email    String   @unique
+  password String
+
+  @@map("customers")
+}
