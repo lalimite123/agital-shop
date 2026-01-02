@@ -5,8 +5,9 @@ import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Button } from "@/components/ui/button"
-import { Sparkles, ChevronRight, Eye } from "lucide-react"
+import { Sparkles, ChevronRight, Eye, ArrowRight } from "lucide-react"
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
+import Image from "next/image"
 
 type Product = {
   id: string
@@ -167,26 +168,37 @@ export function ProductsSection({
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-neutral-100/40 rounded-full blur-3xl" />
       </div>
 
-      {/* Simple Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-8">
-        <div className="flex items-center gap-3">
-          {/* Glassmorphism Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200/60 shadow-sm">
-            <Sparkles className="h-4 w-4 text-neutral-500" />
-            <span className="text-xs font-medium text-neutral-700 uppercase tracking-wide">Empfehlungen</span>
+      {/* Banner Header */}
+      <Link href={linkHref} className="block group mb-8">
+        <div className="relative h-40 sm:h-48 md:h-64 overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-gradient-to-br from-slate-800 to-slate-900">
+          <Image
+            src={title.toLowerCase().includes('neu') ? '/banner_1.jpg' : '/banner_2.jpg'}
+            alt={title}
+            fill
+            quality={100}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, 1200px"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/40" />
+          <div className="relative z-10 p-4 sm:p-6 md:p-8 flex items-center justify-between gap-4">
+            <div className="text-white max-w-xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[10px] sm:text-xs font-medium mb-2">
+                <Sparkles className="h-4 w-4" />
+                <span>Empfehlungen</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1">{title}</h3>
+              <p className="text-white/80 text-xs sm:text-sm">{items?.length ?? 0} Produkte</p>
+            </div>
+            <div className="hidden sm:flex">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-amber-400 text-slate-900 font-bold group-hover:bg-amber-500 transition">
+                Alle anzeigen
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </div>
           </div>
-          <h2 className="text-lg sm:text-2xl lg:text-3xl font-semibold text-neutral-900">
-            {title}
-          </h2>
         </div>
-        <a
-          className="inline-flex items-center gap-1 self-start sm:self-auto px-3 py-1.5 rounded-full border border-neutral-200 text-neutral-700 hover:bg-neutral-50 text-sm font-medium transition-colors duration-200"
-          href={linkHref}
-        >
-          Alle anzeigen
-          <ChevronRight className="w-4 h-4" />
-        </a>
-      </div>
+      </Link>
 
       {loading && (
         <div className="text-neutral-600 text-center py-12">
@@ -205,7 +217,7 @@ export function ProductsSection({
         <Carousel className="w-full" opts={{ align: "start", loop: true }}>
           <CarouselContent className="-ml-4">
             {items.map((product, idx) => (
-              <CarouselItem key={product.id} className="pl-4 basis-[90%] sm:basis-[70%] md:basis-[45%] lg:basis-[380px]">
+              <CarouselItem key={product.id} className="pl-4 basis-[50%] sm:basis-[60%] md:basis-[45%] lg:basis-[380px]">
                 <ProductCard 
                   product={product} 
                   index={idx}
@@ -221,7 +233,7 @@ export function ProductsSection({
           <CarouselNext className="hidden sm:flex -right-12 w-11 h-11 border border-neutral-200/60 bg-white/90 backdrop-blur-md hover:bg-white shadow-lg" />
         </Carousel>
       ) : (
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-5 grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {items.map((product, idx) => (
             <ProductCard 
               key={product.id}
