@@ -168,23 +168,23 @@ export function ProductsSection({
       </div>
 
       {/* Simple Header */}
-      <div className="flex items-center justify-between mb-10">
-        <div className="flex items-center gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-8">
+        <div className="flex items-center gap-3">
           {/* Glassmorphism Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200/60 shadow-sm">
             <Sparkles className="h-4 w-4 text-neutral-500" />
             <span className="text-xs font-medium text-neutral-700 uppercase tracking-wide">Empfehlungen</span>
           </div>
-          <h2 className="text-2xl lg:text-3xl font-semibold text-neutral-900">
+          <h2 className="text-lg sm:text-2xl lg:text-3xl font-semibold text-neutral-900">
             {title}
           </h2>
         </div>
-        <a 
-          className="group flex items-center gap-1 text-neutral-600 hover:text-neutral-900 text-sm font-medium transition-colors duration-200" 
+        <a
+          className="inline-flex items-center gap-1 self-start sm:self-auto px-3 py-1.5 rounded-full border border-neutral-200 text-neutral-700 hover:bg-neutral-50 text-sm font-medium transition-colors duration-200"
           href={linkHref}
         >
-          <span>Alle anzeigen</span>
-          <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
+          Alle anzeigen
+          <ChevronRight className="w-4 h-4" />
         </a>
       </div>
 
