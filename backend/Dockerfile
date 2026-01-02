@@ -17,7 +17,7 @@ RUN corepack enable && pnpm install --frozen-lockfile
 # Copy prisma schema
 COPY prisma ./prisma/
 
-# Skip explicit Prisma generate (handled by @prisma/client postinstall)
+RUN pnpm exec prisma generate
 
 # Copy source code
 COPY . .
