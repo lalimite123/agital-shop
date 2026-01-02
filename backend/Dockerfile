@@ -4,7 +4,6 @@ RUN apt-get update && apt-get install -y openssl ca-certificates && rm -rf /var/
 COPY package.json package-lock.json ./
 RUN npm ci --legacy-peer-deps
 COPY . .
-RUN npm run prisma:generate
 RUN npm run build
 RUN npm prune --production
 
