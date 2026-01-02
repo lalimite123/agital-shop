@@ -113,7 +113,7 @@ export function SearchModal({ isOpen, onClose, initialQuery }: SearchModalProps)
       <div className="absolute inset-0 bg-black/20 backdrop-blur-md" onClick={onClose} />
       <div className="relative w-full max-w-2xl mx-4 bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 animate-in fade-in-0 zoom-in-95 duration-300">
         <div className="flex items-center justify-between p-6 border-b border-white/20">
-          <h2 className="text-lg font-semibold text-gray-800">Rechercher des produits</h2>
+          <h2 className="text-lg font-semibold text-gray-800">Produkte suchen</h2>
           <Button variant="ghost" size="icon" onClick={onClose} className="h-8 w-8 rounded-full hover:bg-white/20">
             <X className="h-4 w-4" />
           </Button>
@@ -123,7 +123,7 @@ export function SearchModal({ isOpen, onClose, initialQuery }: SearchModalProps)
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
             <Input
               type="text"
-              placeholder="Recherche..."
+              placeholder="Suchen..."
               className="pl-12 pr-4 py-4 text-lg bg-white/50 border-white/30 rounded-xl focus:bg-white/70 focus:border-blue-300 transition-all"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -138,11 +138,11 @@ export function SearchModal({ isOpen, onClose, initialQuery }: SearchModalProps)
               {isSearching ? (
                 <div className="flex items-center justify-center py-8">
                   <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-500" />
-                  <span className="ml-2 text-gray-600">Recherche…</span>
+                  <span className="ml-2 text-gray-600">Suche…</span>
                 </div>
               ) : searchResults.length > 0 ? (
                 <div className="space-y-2">
-                  <h3 className="text-sm font-medium text-gray-700 mb-3">Résultats</h3>
+                  <h3 className="text-sm font-medium text-gray-700 mb-3">Ergebnisse</h3>
                   {searchResults.map((product) => (
                     <div
                       key={product.id}
@@ -168,7 +168,7 @@ export function SearchModal({ isOpen, onClose, initialQuery }: SearchModalProps)
               ) : (
                 <div className="text-center py-8">
                   <Package className="h-12 w-12 text-gray-300 mx-auto mb-3" />
-                  <p className="text-gray-500">Aucun produit pour "{query}"</p>
+                  <p className="text-gray-500">Keine Produkte für "{query}"</p>
                 </div>
               )}
             </div>
@@ -177,7 +177,7 @@ export function SearchModal({ isOpen, onClose, initialQuery }: SearchModalProps)
             <div className="px-6 pb-4">
               <h3 className="text-sm font-medium text-gray-700 mb-3 flex items-center gap-2">
                 <Clock className="h-4 w-4" />
-                Recherches récentes
+                Letzte Suchen
               </h3>
               <div className="space-y-1">
                 {recentSearches.map((search, index) => (
@@ -196,8 +196,8 @@ export function SearchModal({ isOpen, onClose, initialQuery }: SearchModalProps)
         </div>
         <div className="px-6 py-4 border-t border-white/20 bg-white/10">
           <div className="flex items-center justify-between text-xs text-gray-500">
-            <span>Entrée pour rechercher</span>
-            <span>Échap pour fermer</span>
+            <span>Enter zum Suchen</span>
+            <span>Escape zum Schließen</span>
           </div>
         </div>
       </div>
