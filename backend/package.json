@@ -2,7 +2,7 @@
   "name": "agital-shop-backend",
   "version": "1.0.0",
   "scripts": {
-    "build": "nest build",
+    "build": "tsc -p tsconfig.build.json",
     "start:prod": "node dist/main.js",
     "prisma:generate": "prisma generate",
     "prisma:push": "prisma db push",
