@@ -10,13 +10,14 @@ services:
     restart: unless-stopped
 
   backend:
+    image: agital-backend:latest
     build:
       context: ./backend
     container_name: agital-backend
     environment:
       - PORT=4000
       - MONGODB_URI=mongodb://mongo:27017/agital-shop
-      - CORS_ORIGIN=http://localhost:3000
+      - CORS_ORIGIN=http://localhost:3000,https://agital-shop.vercel.app
     depends_on:
       - mongo
     ports:
@@ -24,6 +25,7 @@ services:
     restart: unless-stopped
 
   frontend:
+    image: agital-frontend:latest
     build:
       context: ./frontend
       args:
