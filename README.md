@@ -1,5 +1,53 @@
 # agital.soft Shop — Monorepo (Frontend + Backend)
 
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white) 
+![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white) 
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white) 
+![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
+
+## Quick Start
+
+1. Umgebungsvariablen setzen
+   - Backend `backend/.env`:
+     ```env
+     MONGODB_URI="mongodb://localhost:27017/agital-shop"
+     CORS_ORIGIN="http://localhost:3000"
+     PORT="4000"
+     NODE_ENV="development"
+     ```
+   - Frontend `frontend/.env.local`:
+     ```env
+     NEXT_PUBLIC_API_BASE_URL="http://localhost:4000"
+     ```
+
+2. Abhängigkeiten installieren
+   ```bash
+   cd backend && npm install
+   cd ../frontend && npm install
+   ```
+
+3. Datenbank vorbereiten
+   ```bash
+   cd backend
+   npm run prisma:generate
+   npm run prisma:push
+   npm run prisma:seed # optional
+   ```
+
+4. Development starten
+   ```bash
+   # Backend (http://localhost:4000)
+   npm run start:dev
+   
+   # Frontend (http://localhost:3000)
+   cd ../frontend
+   npm run dev
+   ```
+
+5. Deployment (überblick)
+   - Vercel (Frontend): `NEXT_PUBLIC_API_BASE_URL=https://agital-shop.onrender.com`
+   - Render (Backend/Docker): `MONGODB_URI`, `CORS_ORIGIN=https://agital-shop.vercel.app`, `NODE_ENV=production`, Health Check: `/products`
+
 Vollständige digitale Shop‑Anwendung bestehend aus einem NestJS‑Backend (Prisma + MongoDB) und einem Next.js‑Frontend. Dieses README fasst die wichtigsten Schritte zur Installation, Konfiguration und zum Starten zusammen und beschreibt die API‑Abrufarchitektur im Frontend.
 
 ## Funktionen
@@ -152,3 +200,48 @@ await apiPost('/reviews', { rating, name, text, productId: id })
 ---
 
 Entwickelt von Aime Boaz Siekonha
+## 🏗️ Architektur
+
+```mermaid
+graph TB
+    subgraph Frontend["Frontend - Next.js"]
+        A[Homepage]
+        B[Search Bar]
+        C[Product Detail Page]
+        D[Reviews Section]
+    end
+
+    subgraph Backend["Backend API - NestJS"]
+        E[Products API]
+        F[Reviews API]
+        G[Search API]
+    end
+
+    subgraph Database["Database - MongoDB + Prisma"]
+        H[(Products)]
+        I[(Reviews)]
+        J[(Customers)]
+    end
+
+    A -->|GET /products?sort=latest| E
+    A -->|GET /products?sort=rating| E
+    B -->|GET /search?q=term| G
+    C -->|GET /products/:id| E
+    D -->|GET /products/:id/reviews| F
+    D -->|POST /products/:id/reviews| F
+
+    E --> H
+    F --> I
+    G --> H
+
+    style A fill:#000000,color:#fff
+    style B fill:#000000,color:#fff
+    style C fill:#000000,color:#fff
+    style D fill:#000000,color:#fff
+    style E fill:#e0234e,color:#fff
+    style F fill:#e0234e,color:#fff
+    style G fill:#e0234e,color:#fff
+    style H fill:#47A248,color:#fff
+    style I fill:#47A248,color:#fff
+    style J fill:#47A248,color:#fff
+```
