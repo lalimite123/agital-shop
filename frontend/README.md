@@ -101,3 +101,25 @@ await apiPost('/reviews', { rating, name, text, productId: id })
 
 - Le frontend attend l’API du backend compatible avec les endpoints décrits dans le README backend.
 - En cas d’erreur HTTP, les wrappers lèvent une exception (`HTTP <code>`).
+
+## Déploiement sur Vercel
+
+- Variables d’environnement:
+  - `NEXT_PUBLIC_API_BASE_URL` = `https://agital-shop.onrender.com`
+- Build et start:
+  - Build: `npm run build`
+  - Production: `npm start`
+- Vérifications:
+  - `GET https://agital-shop.onrender.com/products` retourne JSON
+  - La landing charge “Die 10 neuesten” et “Die 10 bestbewerteten”
+- Astuces:
+  - CORS côté backend doit inclure `https://agital-shop.vercel.app`
+  - Utiliser `frontend/.env.example` comme référence
+
+## Docker (optionnel)
+
+- Image frontend: `frontend/Dockerfile`
+- Build local:
+  - `docker build -t agital-frontend:latest -f frontend/Dockerfile .`
+- Compose local (avec backend/mongo):
+  - `docker compose up -d`

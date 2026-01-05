@@ -21,7 +21,10 @@ npm install
 Erstellen Sie eine `.env`-Datei:
 
 ```env
-DATABASE_URL="mongodb://localhost:27017/agital-shop"
+MONGODB_URI="mongodb://localhost:27017/agital-shop"
+CORS_ORIGIN="https://agital-shop.vercel.app"
+PORT="4000"
+NODE_ENV="production"
 ```
 
 ## Datenbankeinrichtung
@@ -66,3 +69,35 @@ Das Backend läuft unter `http://localhost:4000`
 
 ### Suche
 - `GET /search?q=super` - Produkte nach Schlüsselwort suchen
+
+## Deployment auf Render (Docker)
+
+- Variante Dockerfile (empfohlen):
+  - Service: Web Service, Runtime: Docker, Kontext: `backend`
+  - Environment:
+    - `MONGODB_URI` (Atlas‑URI)
+    - `CORS_ORIGIN` = `https://agital-shop.vercel.app`
+    - `NODE_ENV` = `production`
+  - Health Check: `Path` = `/products`
+  - Start: `node dist/main.js` (über Dockerfile)
+- Variante Image (optional):
+  - Build: `docker build -t <user>/agital-backend:latest backend/`
+  - Push: `docker push <user>/agital-backend:latest`
+  - Render: Deploy from Image, gleiche Environment wie oben
+
+## Docker Lokal
+
+- Compose: `docker-compose.yml`
+- Dienste: `mongo`, `backend`, `frontend`
+- Start:
+  - `docker compose up -d`
+- Seed (optional):
+  - `docker compose exec backend pnpm exec prisma db push`
+  - `docker compose exec backend pnpm exec ts-node prisma/seed.ts`
+
+## Troubleshooting
+
+- `404` auf `/`: Normal, API hat keinen Root‑Handler; verwenden Sie `/products`, `/search`.
+- Prisma/OpenSSL: Basisimage `node:20-slim` + `openssl`/`ca-certificates` installiert.
+- Client Prisma: Vor Build `pnpm exec prisma generate` im Dockerfile.
+- TypeScript Build: `tsconfig.build.json` kompiliert `src/**` nach `dist/`.
