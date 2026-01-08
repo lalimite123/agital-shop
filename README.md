@@ -197,6 +197,17 @@ await apiPost('/reviews', { rating, name, text, productId: id })
 - Bei HTTP‑Fehlern werfen die Wrapper eine Ausnahme (`HTTP <Statuscode>`).
 - Stellen Sie sicher, dass MongoDB unter der in `DATABASE_URL` angegebenen URL erreichbar ist.
 
+## Keepalive (ohne Cron)
+
+- Zweck: Die Render‑Instanz wach halten, ohne geplante Jobs.
+- Implementierung: clientseitige Komponente pingt alle 14 Minuten das Backend.
+  - Datei: `frontend/components/keepalive.tsx`
+  - Einbindung: `frontend/app/layout.tsx` rendert `<KeepAlive />` global.
+- Funktionsweise: `fetch(${`process.env.NEXT_PUBLIC_API_BASE_URL`}/products)` bei Mount und im 14‑Minuten‑Intervall.
+- Anpassen/Deaktivieren:
+  - Intervall in `setInterval` ändern.
+  - `<KeepAlive />` aus `app/layout.tsx` entfernen, um die Funktion zu deaktivieren.
+
 ---
 
 Entwickelt von Aime Boaz Siekonha
