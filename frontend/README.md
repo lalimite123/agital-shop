@@ -1,13 +1,13 @@
 # agital.soft Shop Frontend
 
-Application frontend construite avec Next.js (App Router) pour l’affichage des produits, la recherche et la gestion des avis, connectée au backend NestJS.
+Frontend‑Anwendung mit Next.js (App Router) zur Anzeige von Produkten, Suche und Bewertungen, angebunden an das NestJS‑Backend.
 
-## Fonctionnalités
+## Funktionen
 
-- Liste des produits avec tris (dernier, meilleure note)
-- Détail d’un produit avec galerie, infos et avis
-- Soumission d’un avis (note, nom, texte)
-- Recherche plein texte sur les produits
+- Produktliste mit Sortierungen (neueste, beste Bewertung)
+- Produktdetail mit Galerie, Infos und Bewertungen
+- Bewertung abgeben (Sterne, Name, Text)
+- Volltextsuche über Produkte
 
 ## Installation
 
@@ -16,19 +16,19 @@ cd frontend
 npm install
 ```
 
-## Configuration
+## Konfiguration
 
-- Le frontend consomme les API du backend via la variable `NEXT_PUBLIC_API_BASE_URL`.
-- Par défaut, l’URL est `http://localhost:4000`.
-- Créez un fichier `.env.local` à la racine de `frontend` si besoin :
+- Das Frontend ruft die Backend‑API über die Variable `NEXT_PUBLIC_API_BASE_URL` auf.
+- Standardwert: `http://localhost:4000`.
+- Legen Sie bei Bedarf eine Datei `.env.local` im Ordner `frontend` an:
 
 ```env
 NEXT_PUBLIC_API_BASE_URL="http://localhost:4000"
 ```
 
-## Démarrer
+## Starten
 
-Assurez-vous que le backend est démarré sur `http://localhost:4000` (voir README du backend), puis :
+Stellen Sie sicher, dass das Backend unter `http://localhost:4000` läuft (siehe Backend‑README), dann:
 
 ```bash
 npm run dev
@@ -39,9 +39,9 @@ npm run dev
 - Production locale : `npm start`
 - Lint : `npm run lint`
 
-## Architecture de Fetch API
+## Fetch‑API‑Architektur
 
-- Wrapper HTTP dans `lib/api.ts` :
+- HTTP‑Wrapper in `lib/api.ts`:
 
 ```ts
 const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4000"
@@ -87,7 +87,7 @@ const results = await apiGet(`/search?q=${encodeURIComponent(q)}`)
 await apiPost('/reviews', { rating, name, text, productId: id })
 ```
 
-## Structure des répertoires
+## Verzeichnisstruktur
 
 - `app/` : pages Next.js (App Router)
   - `app/products/page.tsx` : liste des produits
@@ -97,26 +97,26 @@ await apiPost('/reviews', { rating, name, text, productId: id })
 - `lib/api.ts` : wrappers HTTP `apiGet`/`apiPost`
 - `styles/` et `app/globals.css` : styles globaux
 
-## Notes
+## Hinweise
 
-- Le frontend attend l’API du backend compatible avec les endpoints décrits dans le README backend.
-- En cas d’erreur HTTP, les wrappers lèvent une exception (`HTTP <code>`).
+- Das Frontend erwartet ein Backend, das die im Backend‑README beschriebenen Endpunkte bereitstellt.
+- Bei HTTP‑Fehlern werfen die Wrapper eine Exception (`HTTP <Code>`).
 
-## Déploiement sur Vercel
+## Deployment auf Vercel
 
-- Variables d’environnement:
+- Umgebungsvariablen:
   - `NEXT_PUBLIC_API_BASE_URL` = `https://agital-shop.onrender.com`
-- Build et start:
+- Build und Start:
   - Build: `npm run build`
-  - Production: `npm start`
-- Vérifications:
-  - `GET https://agital-shop.onrender.com/products` retourne JSON
-  - La landing charge “Die 10 neuesten” et “Die 10 bestbewerteten”
-- Astuces:
-  - CORS côté backend doit inclure `https://agital-shop.vercel.app`
-  - Utiliser `frontend/.env.example` comme référence
+  - Produktion: `npm start`
+- Prüfungen:
+  - `GET https://agital-shop.onrender.com/products` liefert JSON
+  - Die Landing lädt “Die 10 neuesten” und “Die 10 bestbewerteten”
+- Hinweise:
+  - CORS im Backend muss `https://agital-shop.vercel.app` enthalten
+  - Verwenden Sie `frontend/.env.example` als Referenz
 
-## Docker (optionnel)
+## Docker (optional)
 
 - Image frontend: `frontend/Dockerfile`
 - Build local:
