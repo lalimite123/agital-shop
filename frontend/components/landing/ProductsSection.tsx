@@ -201,9 +201,51 @@ export function ProductsSection({
       </Link>
 
       {loading && (
-        <div className="text-neutral-600 text-center py-12">
-          <div className="inline-block w-6 h-6 border-2 border-neutral-300 border-t-neutral-900 rounded-full animate-spin" />
-        </div>
+        viewMode === 'list' ? (
+          <Carousel className="w-full" opts={{ align: "start", loop: true }}>
+            <CarouselContent className="-ml-4">
+              {Array.from({ length: 6 }).map((_, idx) => (
+                <CarouselItem key={idx} className="pl-4 basis-[50%] sm:basis-[60%] md:basis-[45%] lg:basis-[380px]">
+                  <Card className="group relative overflow-hidden rounded-3xl border border-neutral-200/60 bg-white/80 backdrop-blur-sm animate-fadeIn" style={{ animationDelay: `${idx * 80}ms` }}>
+                    <CardContent className="p-0">
+                      <div className="relative aspect-[4/3] overflow-hidden rounded-t-3xl bg-neutral-50">
+                        <Skeleton className="absolute inset-0" />
+                      </div>
+                      <div className="p-5 space-y-3">
+                        <Skeleton className="h-4 w-3/4" />
+                        <Skeleton className="h-6 w-24" />
+                        <div className="flex justify-end">
+                          <Skeleton className="h-11 w-32 rounded-2xl" />
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden sm:flex -left-12 w-11 h-11 border border-neutral-200/60 bg-white/90 backdrop-blur-md hover:bg-white shadow-lg" />
+            <CarouselNext className="hidden sm:flex -right-12 w-11 h-11 border border-neutral-200/60 bg-white/90 backdrop-blur-md hover:bg-white shadow-lg" />
+          </Carousel>
+        ) : (
+          <div className="grid gap-5 grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {Array.from({ length: 8 }).map((_, idx) => (
+              <Card key={idx} className="group relative overflow-hidden rounded-3xl border border-neutral-200/60 bg-white/80 backdrop-blur-sm animate-fadeIn" style={{ animationDelay: `${idx * 80}ms` }}>
+                <CardContent className="p-0">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-t-3xl bg-neutral-50">
+                    <Skeleton className="absolute inset-0" />
+                  </div>
+                  <div className="p-5 space-y-3">
+                    <Skeleton className="h-4 w-3/4" />
+                    <Skeleton className="h-6 w-24" />
+                    <div className="flex justify-end">
+                      <Skeleton className="h-11 w-32 rounded-2xl" />
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        )
       )}
       
       {error && (
